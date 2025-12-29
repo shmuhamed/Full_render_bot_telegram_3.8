@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: suvtekin-auto
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn app:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.9.16
+      - key: TELEGRAM_TOKEN
+        value: "8586126815:AAHAGyah7Oz-8mHzUcFvRcHV3Dsug3sPT4g"
+      - key: TELEGRAM_ADMIN_ID
+        value: "6349730260"
+      - key: SECRET_KEY
+        value: "suvtekin-auto-secret-key-2024-muha-muhamed"
+    healthCheckPath: /api/status
+    autoDeploy: true
